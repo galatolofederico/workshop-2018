@@ -1,6 +1,7 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 
 import "../todo-element/todo-element.js"
+import "../todo-list/todo-list.js"
 
 /**
  * @customElement
@@ -14,7 +15,7 @@ class WebappApp extends PolymerElement {
           display: block;
         }
       </style>
-      <todo-element testo="CIAO"> </todo-element>
+      <todo-list> </todo-list>
 
     `;
   }
