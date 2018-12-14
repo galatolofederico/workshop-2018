@@ -1,6 +1,7 @@
 {
   "name": "webapp",
   "dependencies": {
+    "@polymer/paper-checkbox": "^3.1.0",
     "@polymer/polymer": "^3.0.0"
   },
   "devDependencies": {
