@@ -23,12 +23,12 @@ class TodoElement extends PolymerElement {
 
     static get properties() {
         return {
-            /*testo: {
+            value: {
                 type: String,
                 value: "Test",
                 notify: true,
                 reflectToAttribute: true
-            },*/
+            },
             checked: {
                 type: Boolean,
                 value: false,
