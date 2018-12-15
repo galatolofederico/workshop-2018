@@ -26,18 +26,27 @@ class TodoList extends PolymerElement {
     
       </style>
       <ul class="app-grid">
-        <li class="item">1</li>
-        <li class="item">2</li>
-        <li class="item">3</li>
-        <li class="item">3</li>
-        <li class="item">3</li>
-        
+        <template is="dom-repeat" items={{elements}}>
+          <li class="item"><todo-element value=[[item.value]]></todo-element></li>
+        </template>
       </ul>
         `;
     }
     static get properties() {
         return {
-            
+          elements : { 
+            Type: Array(),
+            value() { 
+              return  [
+                { value: "1" },
+                { value: "2" },
+                { value: "3" },
+                { value: "4" },
+                { value: "5" },
+                { value: "6" }
+              ] 
+            }
+          }
         }
     }
 }

@@ -12,7 +12,7 @@ class TodoElement extends PolymerElement {
             </style>
 
             <paper-checkbox checked={{checked}}>
-                <p class$="[[_getStyle(checked)]]"> [[testo]] </p> 
+                <p class$="[[_getStyle(checked)]]"> [[value]] </p> 
             </paper-checkbox>
         `;
     }
@@ -23,15 +23,15 @@ class TodoElement extends PolymerElement {
 
     static get properties() {
         return {
-            testo: {
+            /*testo: {
                 type: String,
                 value: "Test",
                 notify: true,
                 reflectToAttribute: true
-            },
+            },*/
             checked: {
                 type: Boolean,
-                value: true,
+                value: false,
                 notify: true,
                 reflectToAttribute: true
             }
