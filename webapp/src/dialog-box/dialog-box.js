@@ -5,6 +5,7 @@ import "@polymer/paper-button/paper-button.js"
 import '@polymer/paper-icon-button/paper-icon-button.js'
 import "@polymer/iron-icon/iron-icon.js"
 import "@polymer/iron-icons/iron-icons.js"
+import "@polymer/paper-input/paper-input.js"
 
 class DialogBox extends PolymerElement {
     static get template() {
@@ -13,8 +14,12 @@ class DialogBox extends PolymerElement {
             <paper-icon-button raised on-click="_openDialog" icon="add"></paper-icon-button>
 
             <paper-dialog id="dialog">
-                <h2>Qualcosa</h2>
-                Qui ci va qualcosa!
+                <h2>Aggiungi memo</h2>
+                <p><paper-input></paper-input></p>
+                <div class="buttons">
+                    <paper-button dialog-dismiss>Annulla</paper-button>
+                    <paper-button dialog-confirm autofocus>Aggiungi</paper-button>                
+                </div>
             </paper-dialog>
 
        `;
