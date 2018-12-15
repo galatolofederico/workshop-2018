@@ -8,7 +8,7 @@ class DialogBoxTodo extends PolymerElement {
     static get template() {
         return html`
     
-            <dialog-box arr={{arr}}>
+            <dialog-box>
                 <span slot="title">Aggiungi memo</span>
                 <p><paper-input id="new_memo"></paper-input></p>
                 <div class="buttons">

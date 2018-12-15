@@ -26,11 +26,6 @@ class DialogBox extends PolymerElement {
 
     static get properties() {
         return {
-            arr : {
-                type: Array,
-                notify: true,
-                reflectToAttribute: true
-            }
         }
     }
 }
