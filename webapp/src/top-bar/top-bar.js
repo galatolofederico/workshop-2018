@@ -22,8 +22,8 @@ class TopBar extends PolymerElement {
 
         <app-header reveals>
             <app-toolbar>
-              <div main-title>Workshop</div>
-              <dialog-box></dialog-box>
+                <div main-title>Workshop</div>
+                <dialog-box arr={{arr}}></dialog-box>
             </app-toolbar>
         </app-header>
         `;
@@ -31,6 +31,11 @@ class TopBar extends PolymerElement {
 
     static get properties() {
         return {
+            arr : {
+                type: Array,
+                notify: true,
+                reflectToAttribute: true
+            }
         }
     }
 }

@@ -21,8 +21,8 @@ class WebappApp extends PolymerElement {
           margin-top: 70px;
         }
       </style>
-      <top-bar> </top-bar>
-      <todo-list> </todo-list>
+      <top-bar arr={{elements}}></top-bar>
+      <todo-list arr={{elements}}> </todo-list>
     `;
   }
   static get properties() {
@@ -30,6 +30,19 @@ class WebappApp extends PolymerElement {
       prop1: {
         type: String,
         value: 'webapp-app'
+      },
+      elements : { 
+        type: Array,
+        value: [ 
+            { value: "1" },
+            { value: "2" },
+            { value: "3" },
+            { value: "4" },
+            { value: "5" },
+            { value: "6" }
+        ],
+        notify: true,
+        reflectToAttribute: true
       }
     };
   }

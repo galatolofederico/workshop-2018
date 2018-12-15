@@ -15,10 +15,10 @@ class DialogBox extends PolymerElement {
 
             <paper-dialog id="dialog">
                 <h2>Aggiungi memo</h2>
-                <p><paper-input></paper-input></p>
+                <p><paper-input id="new_memo"></paper-input></p>
                 <div class="buttons">
                     <paper-button dialog-dismiss>Annulla</paper-button>
-                    <paper-button dialog-confirm autofocus>Aggiungi</paper-button>                
+                    <paper-button dialog-confirm autofocus on-click="_aggiungiMemo">Aggiungi</paper-button>                
                 </div>
             </paper-dialog>
 
@@ -26,11 +26,22 @@ class DialogBox extends PolymerElement {
     }
 
     _openDialog() {
-        this.$.dialog.open();
+        this.$.dialog.open()
+    }
+
+    _aggiungiMemo() {
+        //Concat per forzare l'aggiornamento dell'array e l'update di dom-repeat
+        //(che altrimenti controlla solo se l'array e' lo stesso e non gli elementi)
+        this.arr = this.arr.concat({value: this.$.new_memo.value})
     }
 
     static get properties() {
         return {
+            arr : {
+                type: Array,
+                notify: true,
+                reflectToAttribute: true
+            }
         }
     }
 }
