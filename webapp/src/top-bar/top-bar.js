@@ -2,7 +2,7 @@ import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
 
 import "@polymer/app-layout/app-header/app-header.js"
 import '@polymer/app-layout/app-toolbar/app-toolbar.js'
-import '../dialog-box/dialog-box.js'
+import '../dialog-box-todo/dialog-box-todo.js'
 
 
 class TopBar extends PolymerElement {
@@ -23,7 +23,7 @@ class TopBar extends PolymerElement {
         <app-header reveals>
             <app-toolbar>
                 <div main-title>Workshop</div>
-                <dialog-box arr={{arr}}></dialog-box>
+                <dialog-box-todo arr={{arr}}></dialog-box-todo>
             </app-toolbar>
         </app-header>
         `;
