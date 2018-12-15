@@ -23,7 +23,6 @@ class WebappApp extends PolymerElement {
       </style>
       <top-bar> </top-bar>
       <todo-list> </todo-list>
-
     `;
   }
   static get properties() {
