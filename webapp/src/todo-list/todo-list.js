@@ -27,7 +27,12 @@ class TodoList extends PolymerElement {
         ul {
           padding: 0;
           list-style: none;
-          margin-left: 3%;
+          margin-left: 10%;
+          width: 85%
+        }
+
+        ul li {
+          padding: 0px 10px;
         }
 
         @media (max-width: 640px) {
@@ -60,12 +65,12 @@ class TodoList extends PolymerElement {
           elements : { 
             type: Array,
             value: [ 
-                { value: "1", checked: false },
-                { value: "2", checked: false },
-                { value: "3", checked: false },
-                { value: "4", checked: false },
-                { value: "5", checked: false },
-                { value: "6", checked: false }
+                { value: "Nota 1", checked: false },
+                { value: "Nota 2", checked: false },
+                { value: "Nota 3", checked: false },
+                { value: "Nota 4", checked: false },
+                { value: "Nota 5", checked: false },
+                { value: "Nota 6", checked: false }
             ],
             notify: true,
             reflectToAttribute: true
