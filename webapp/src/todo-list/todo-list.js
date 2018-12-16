@@ -30,9 +30,9 @@ class TodoList extends PolymerElement {
         ul {
           padding: 0;
           list-style: none;
+          margin-left: 3%;
         }
 
-    
         @media (max-width: 640px) {
           :host {
             --app-grid-columns: 1;
@@ -40,6 +40,7 @@ class TodoList extends PolymerElement {
         }
     
       </style>
+
       <ul class="app-grid">
         <template is="dom-repeat" items={{elements}}>
           <li class="item"><todo-element value={{item.value}}></todo-element></li>

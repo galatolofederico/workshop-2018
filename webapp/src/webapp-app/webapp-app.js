@@ -1,5 +1,10 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 
+import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js';
+import '@polymer/app-layout/app-drawer/app-drawer.js';
+import '@polymer/app-layout/app-header-layout/app-header-layout.js';
+import '@polymer/app-layout/app-header/app-header.js';
+import "@polymer/app-layout/app-box/app-box.js"
 import "../todo-element/todo-element.js"
 import "../todo-list/todo-list.js"
 import "../top-bar/top-bar.js"
@@ -13,24 +18,25 @@ class WebappApp extends PolymerElement {
     // CSS should be better
     return html`
       <style>
-        :host {
-          display: block;
-        }
-        todo-list {
-          display: block;
-          margin-top: 70px;
+        app-header {
+          background-color: #4285f4;
+          color: #fff;
+          box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.4);
         }
       </style>
-      <top-bar></top-bar>
-      <todo-list> </todo-list>
+        
+      <app-header-layout fullbleed>
+        <app-header slot="header">
+          <top-bar></top-bar>
+        </app-header>
+        <app-box>
+          <todo-list> </todo-list>
+        </app-box>
+      </app-header-layout>
     `;
   }
   static get properties() {
     return {
-      prop1: {
-        type: String,
-        value: 'webapp-app'
-      },
     };
   }
 }
