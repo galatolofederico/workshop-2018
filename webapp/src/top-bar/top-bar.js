@@ -9,8 +9,7 @@ class TopBar extends PolymerElement {
         return html`
         <app-toolbar>
             <div main-title>Workshop</div>
-            <dialog-box-todo-add></dialog-box-todo-add>
-            <dialog-box-todo-clear></dialog-box-todo-clear>
+            <dialog-box-todo></dialog-box-todo>
         </app-toolbar>
         `;
     }
