@@ -4,12 +4,12 @@ import "@polymer/paper-input/paper-input.js"
 import "@polymer/paper-button/paper-button.js"
 import "../dialog-box/dialog-box.js"
 
-class DialogBoxTodo extends PolymerElement {
+class DialogBoxTodoAdd extends PolymerElement {
 
     static get template() {
         return html`
     
-            <dialog-box>
+            <dialog-box icon="add">
                 <span slot="title">Aggiungi memo</span>
                 <p><paper-input id="new_memo"></paper-input></p>
                 <div class="buttons">
@@ -24,7 +24,7 @@ class DialogBoxTodo extends PolymerElement {
         //Concat serve per forzare l'aggiornamento dell'array e l'update di dom-repeat
         //(che altrimenti controlla solo se l'array e' lo stesso e non gli elementi)
         //this.arr = this.arr.concat({value: this.$.new_memo.value})
-        this.dispatchEvent(new CustomEvent('add', {
+        this.dispatchEvent(new CustomEvent('new-memo', {
             bubbles:true,
             composed:true ,
             detail: this.$.new_memo.value
@@ -38,4 +38,4 @@ class DialogBoxTodo extends PolymerElement {
     }
 }
 
-customElements.define('dialog-box-todo', DialogBoxTodo);
+customElements.define('dialog-box-todo-add', DialogBoxTodoAdd);

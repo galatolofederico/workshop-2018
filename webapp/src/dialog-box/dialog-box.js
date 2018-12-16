@@ -10,7 +10,7 @@ class DialogBox extends PolymerElement {
     static get template() {
         return html`
 
-            <paper-icon-button raised on-click="_openDialog" icon="add"></paper-icon-button>
+            <paper-icon-button raised on-click="_openDialog" icon={{icon}}></paper-icon-button>
 
             <paper-dialog id="dialog">
                 <h2><slot name="title"></slot></h2>
@@ -26,6 +26,10 @@ class DialogBox extends PolymerElement {
 
     static get properties() {
         return {
+            icon: {
+                type: String,
+                value: this.icon
+            }
         }
     }
 }

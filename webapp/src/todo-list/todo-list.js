@@ -6,12 +6,14 @@ import "@polymer/app-layout/app-grid/app-grid-style.js"
 class TodoList extends PolymerElement {
     constructor() {
       super()
-      this._boundListener = this.aggiungiElemento.bind(this)
+      this._boundListenerAdd = this.aggiungiElemento.bind(this)
+      this._boundListenerClear = this.pulisci.bind(this)
     }
 
     ready() {
       super.ready()
-      window.addEventListener('add', this._boundListener)
+      window.addEventListener('new-memo', this._boundListenerAdd)
+      window.addEventListener('clean-memos', this._boundListenerClear)
     }
 
     static get template() {
@@ -37,15 +39,20 @@ class TodoList extends PolymerElement {
       </style>
 
       <ul class="app-grid">
-        <template is="dom-repeat" items={{elements}}>
-          <li class="item"><todo-element value={{item.value}}></todo-element></li>
+        <template id="lista" is="dom-repeat" items={{elements}}>
+          <li class="item"><todo-element checked={{item.checked}} value={{item.value}}></todo-element></li>
         </template>
       </ul>
         `;
     }
 
     aggiungiElemento(memo) {
-      this.elements = this.elements.concat({ value: memo.detail })
+      this.elements.push({ value: memo.detail, checked: false })
+      this.$.lista.render()
+    }
+
+    pulisci() {
+      this.elements = this.elements.filter(element => !element.checked)
     }
 
     static get properties() {
@@ -53,12 +60,12 @@ class TodoList extends PolymerElement {
           elements : { 
             type: Array,
             value: [ 
-                { value: "1" },
-                { value: "2" },
-                { value: "3" },
-                { value: "4" },
-                { value: "5" },
-                { value: "6" }
+                { value: "1", checked: false },
+                { value: "2", checked: false },
+                { value: "3", checked: false },
+                { value: "4", checked: false },
+                { value: "5", checked: false },
+                { value: "6", checked: false }
             ],
             notify: true,
             reflectToAttribute: true
