@@ -9,13 +9,8 @@ class TodoList extends PolymerElement {
       this._boundListener = this.aggiungiElemento.bind(this)
     }
 
-    connectedCallback() {
-      super.connectedCallback()
-      window.addEventListener('add', this._boundListener)
-    }
-
-    disconnectedCallback() {
-      super.disconnectedCallback()
+    ready() {
+      super.ready()
       window.addEventListener('add', this._boundListener)
     }
 
