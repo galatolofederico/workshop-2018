@@ -12,8 +12,8 @@ class TodoList extends PolymerElement {
 
     ready() {
       super.ready()
-      window.addEventListener('add', this._boundListenerAdd)
-      window.addEventListener('clean', this._boundListenerClear)
+      window.addEventListener('new-memo', this._boundListenerAdd)
+      window.addEventListener('clean-memos', this._boundListenerClear)
     }
 
     static get template() {

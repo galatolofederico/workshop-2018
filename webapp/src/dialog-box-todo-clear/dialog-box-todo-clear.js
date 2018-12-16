@@ -21,7 +21,7 @@ class DialogBoxTodoClear extends PolymerElement {
     }
 
     _elimina() {
-        this.dispatchEvent(new CustomEvent('clean', {
+        this.dispatchEvent(new CustomEvent('clean-memos', {
             bubbles: true,
             composed: true,
         }))
