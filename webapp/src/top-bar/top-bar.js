@@ -2,7 +2,8 @@ import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
 
 import "@polymer/app-layout/app-header/app-header.js"
 import '@polymer/app-layout/app-toolbar/app-toolbar.js'
-import '../dialog-box-todo/dialog-box-todo.js'
+import '../dialog-box-todo-add/dialog-box-todo-add.js'
+import '../dialog-box-todo-clear/dialog-box-todo-clear.js'
 
 
 class TopBar extends PolymerElement {
@@ -23,7 +24,8 @@ class TopBar extends PolymerElement {
         <app-header reveals>
             <app-toolbar>
                 <div main-title>Workshop</div>
-                <dialog-box-todo></dialog-box-todo>
+                <dialog-box-todo-add></dialog-box-todo-add>
+                <dialog-box-todo-clear></dialog-box-todo-clear>
             </app-toolbar>
         </app-header>
         `;
@@ -31,11 +33,6 @@ class TopBar extends PolymerElement {
 
     static get properties() {
         return {
-            arr : {
-                type: Array,
-                notify: true,
-                reflectToAttribute: true
-            }
         }
     }
 }

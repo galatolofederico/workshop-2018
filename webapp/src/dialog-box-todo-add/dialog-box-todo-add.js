@@ -4,12 +4,12 @@ import "@polymer/paper-input/paper-input.js"
 import "@polymer/paper-button/paper-button.js"
 import "../dialog-box/dialog-box.js"
 
-class DialogBoxTodo extends PolymerElement {
+class DialogBoxTodoAdd extends PolymerElement {
 
     static get template() {
         return html`
     
-            <dialog-box>
+            <dialog-box icon="add">
                 <span slot="title">Aggiungi memo</span>
                 <p><paper-input id="new_memo"></paper-input></p>
                 <div class="buttons">
@@ -38,4 +38,4 @@ class DialogBoxTodo extends PolymerElement {
     }
 }
 
-customElements.define('dialog-box-todo', DialogBoxTodo);
+customElements.define('dialog-box-todo-add', DialogBoxTodoAdd);
