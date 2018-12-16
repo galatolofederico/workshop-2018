@@ -59,7 +59,6 @@ class TodoList extends PolymerElement {
     }
 
     pulisci() {
-      console.table(this.elements)
       this.elements = this.elements.filter(element => !element.checked)
     }
 
