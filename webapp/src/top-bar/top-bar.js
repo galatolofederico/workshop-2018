@@ -23,7 +23,7 @@ class TopBar extends PolymerElement {
         <app-header reveals>
             <app-toolbar>
                 <div main-title>Workshop</div>
-                <dialog-box-todo arr={{arr}}></dialog-box-todo>
+                <dialog-box-todo></dialog-box-todo>
             </app-toolbar>
         </app-header>
         `;
