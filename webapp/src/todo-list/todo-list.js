@@ -10,18 +10,10 @@ class TodoList extends PolymerElement {
       this._boundListenerClear = this.pulisci.bind(this)
     }
 
-    connectedCallback() {
-      super.connectedCallback()
+    ready() {
+      super.ready()
       window.addEventListener('add', this._boundListenerAdd)
       window.addEventListener('clean', this._boundListenerClear)
-
-    }
-
-    disconnectedCallback() {
-      super.disconnectedCallback()
-      window.addEventListener('add', this._boundListenerAdd)
-      window.addEventListener('clean', this._boundListenerClear)
-
     }
 
     static get template() {
