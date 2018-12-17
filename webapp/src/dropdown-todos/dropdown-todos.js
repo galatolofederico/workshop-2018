@@ -9,7 +9,7 @@ class DropdownTodos extends PolymerElement {
     static get template() {
         return html`
             <paper-menu-button on-iron-select="_changeList">
-                <paper-icon-button icon="arrow-drop-down" slot="dropdown-trigger"></paper-icon-button>
+                <paper-icon-button icon="menu" slot="dropdown-trigger"></paper-icon-button>
                 <paper-listbox slot="dropdown-content">
                     <template is=dom-repeat items={{todos}}>
                         <paper-item>{{item}}</paper-item>
@@ -38,7 +38,6 @@ class DropdownTodos extends PolymerElement {
                 notify: true,
                 reflectToAttribute: true
             }
-
         }
     }
 }

@@ -73,7 +73,7 @@ class TodoList extends PolymerElement {
         return {
           elements : { 
             type: Array,
-            value: [                 
+            value: [            
                 { value: "Nota 1", checked: false },
                 { value: "Nota 2", checked: false },
                 { value: "Nota 3", checked: false },

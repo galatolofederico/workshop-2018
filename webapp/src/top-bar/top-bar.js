@@ -21,10 +21,10 @@ class TopBar extends PolymerElement {
     static get template() {
         return html`
         <app-toolbar>
-            <dropdown-todos></dropdown-todos>
             <div main-title>
                 Todo list: [[currentList]]
             </div>
+            <dropdown-todos></dropdown-todos>
             <dialog-box-todo-add></dialog-box-todo-add>
             <dialog-box-todo-clear></dialog-box-todo-clear>
         </app-toolbar>
@@ -39,7 +39,7 @@ class TopBar extends PolymerElement {
         return {
             currentList : {
                 type: String,
-                value: "crea una lista",
+                value: "seleziona lista",
                 notify: true,
                 reflectToAttribute: true
             }
