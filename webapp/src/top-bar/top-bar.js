@@ -8,12 +8,22 @@ import '../dropdown-todos/dropdown-todos.js'
 
 
 class TopBar extends PolymerElement {
+    constructor() {
+        super()
+        this._boundListenerChangeList = this.aggiornaTitolo.bind(this)
+      }
+  
+      ready() {
+        super.ready()
+        window.addEventListener('change-todo-list', this._boundListenerChangeList)
+    }
+
     static get template() {
         return html`
         <app-toolbar>
-            <dropdown-todos list={{currentList}}></dropdown-todos>
+            <dropdown-todos></dropdown-todos>
             <div main-title>
-                Todo list: {{currentList}}
+                Todo list: [[currentList]]
             </div>
             <dialog-box-todo-add></dialog-box-todo-add>
             <dialog-box-todo-clear></dialog-box-todo-clear>
@@ -21,11 +31,15 @@ class TopBar extends PolymerElement {
         `;
     }
 
+    aggiornaTitolo(list){
+        this.currentList = list.detail
+    }
+
     static get properties() {
         return {
             currentList : {
                 type: String,
-                value: "Workshop",
+                value: "crea una lista",
                 notify: true,
                 reflectToAttribute: true
             }

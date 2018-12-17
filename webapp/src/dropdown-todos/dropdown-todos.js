@@ -5,30 +5,40 @@ import '@polymer/paper-listbox/paper-listbox.js';
 import '@polymer/paper-menu-button/paper-menu-button.js'
 
 class DropdownTodos extends PolymerElement {
+
     static get template() {
         return html`
             <paper-menu-button on-iron-select="_changeList">
                 <paper-icon-button icon="arrow-drop-down" slot="dropdown-trigger"></paper-icon-button>
                 <paper-listbox slot="dropdown-content">
-                    <paper-item id="test1">Test1</paper-item>
-                    <paper-item id="test2">Test2</paper-item>
+                    <template is=dom-repeat items={{todos}}>
+                        <paper-item>{{item}}</paper-item>
+                    </template>
                 </paper-listbox>
             </paper-menu-button>
         `;
     }
 
     _changeList(e){
-        this.list = e.target.selectedItem.id
+        this.dispatchEvent(new CustomEvent('change-todo-list', {
+            bubbles:true,
+            composed:true ,
+            detail: e.target.selectedItem.innerText
+            }))
     }
 
     static get properties() {
         return {
-            list: {
-                type: String,
-                value: "",
+            todos: {
+                type: Array,
+                value: [
+                    "Lista 1",
+                    "Lista 2"
+                ],
                 notify: true,
                 reflectToAttribute: true
             }
+
         }
     }
 }
