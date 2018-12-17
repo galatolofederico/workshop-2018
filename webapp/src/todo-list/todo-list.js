@@ -2,6 +2,8 @@ import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
 
 import "../todo-element/todo-element.js"
 import "@polymer/app-layout/app-grid/app-grid-style.js"
+import '@polymer/app-storage/app-localstorage/app-localstorage-document.js'
+
 
 class TodoList extends PolymerElement {
     constructor() {
@@ -48,12 +50,13 @@ class TodoList extends PolymerElement {
           <li class="item"><todo-element checked={{item.checked}} value={{item.value}}></todo-element></li>
         </template>
       </ul>
+      <app-localstorage-document key="todo-list" data={{elements}}>
+      </app-localstorage-document>
         `;
     }
 
     aggiungiElemento(memo) {
-      this.elements.push({ value: memo.detail, checked: false })
-      this.$.lista.render()
+      this.elements = this.elements.concat({ value: memo.detail, checked: false })
     }
 
     pulisci() {
