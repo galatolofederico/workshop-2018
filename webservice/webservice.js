@@ -14,12 +14,14 @@ PUT /todo/:id
 
 
 express = require("express")
+list_router = require("./middlewares/list.js")
+todo_router = require("./middlewares/todo.js")
 
 app = express()
 
-app.get("/test", (req, res) => {
-    res.send("ciao")
-})
+app.use("/", list_router)
+app.use("/todo", todo_router)
 
+//app.listen(3000)
 
-app.listen(3000)
+module.exports = app

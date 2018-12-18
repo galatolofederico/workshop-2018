@@ -1,17 +1,22 @@
 express = require("express")
-List = require("../utils/list.js")
+listloader = require("./listloader.js")
 
-
-list = new List()
 router = express.Router()
 
+router.use(express.json())
+router.use(listloader)
+
 router.get("/list", (req, res) => {
-    list.loadList()
-    res.send(list.list)
+    res.send({
+        list: req.list.list
+    })
 })
 
 router.post("/list", (req, res) => {
-    list.loadList()
-    list.list.push(req.body.todo)
-    list.saveList()
+    req.list.list.push(req.body.todo)
+    req.list.saveList()
+    res.end()
 })
+
+
+module.exports = router

@@ -1,3 +1,5 @@
+fs = require("fs")
+
 class List {
     constructor(){
         this.listfile = "/tmp/list.json"
@@ -11,6 +13,11 @@ class List {
 
     saveList(){
         fs.writeFileSync(this.listfile, JSON.stringify(this.list))
+    }
+
+    clear(){
+        this.list = []
+        this.saveList()
     }
 }
 
