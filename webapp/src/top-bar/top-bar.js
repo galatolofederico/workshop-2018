@@ -39,7 +39,7 @@ class TopBar extends PolymerElement {
         return {
             currentList : {
                 type: String,
-                value: "seleziona lista",
+                value: "default",
                 notify: true,
                 reflectToAttribute: true
             }

@@ -52,7 +52,7 @@ class TodoList extends PolymerElement {
           <li class="item"><todo-element checked={{item.checked}} value={{item.value}}></todo-element></li>
         </template>
       </ul>
-      <app-localstorage-document key={{currentList}} data={{elements}}>
+      <app-localstorage-document key=[[currentList]] data={{elements}}>
       </app-localstorage-document>
         `;
     }
@@ -67,6 +67,7 @@ class TodoList extends PolymerElement {
 
     cambiaLista(list) {
       this.currentList = list.detail
+      //C'e' un bug qui che porta alla sovrascrittura delle liste con quelle precedenti
     }
 
     static get properties() {
@@ -83,6 +84,10 @@ class TodoList extends PolymerElement {
             ],
             notify: true,
             reflectToAttribute: true
+          },
+          currentList : {
+            type: String,
+            value: "default",
           }
         }
     }
