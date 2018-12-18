@@ -2,7 +2,7 @@ fs = require("fs")
 
 class List {
     constructor(){
-        this.listfile = "/tmp/list.json"
+        this.listfile = "./tmp/list.json"
         this.list = []
         this.loadList()
     }

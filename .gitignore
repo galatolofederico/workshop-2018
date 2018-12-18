@@ -1,2 +1,4 @@
 webapp/node_modules
 webservice/node_modules
+npm-debug.log
+
