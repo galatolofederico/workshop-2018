@@ -32,7 +32,6 @@ class WebappApp extends PolymerElement {
         <app-box>
           <todo-list> </todo-list>
         </app-box>
-        
       </app-header-layout>
     `;
   }

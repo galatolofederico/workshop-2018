@@ -10,12 +10,14 @@ class TodoList extends PolymerElement {
       super()
       this._boundListenerAdd = this.aggiungiElemento.bind(this)
       this._boundListenerClear = this.pulisci.bind(this)
+      this._boundListenerChangeList = this.cambiaLista.bind(this)
     }
 
     ready() {
       super.ready()
       window.addEventListener('new-memo', this._boundListenerAdd)
       window.addEventListener('clean-memos', this._boundListenerClear)
+      window.addEventListener('change-todo-list', this._boundListenerChangeList)
     }
 
     static get template() {
@@ -50,7 +52,7 @@ class TodoList extends PolymerElement {
           <li class="item"><todo-element checked={{item.checked}} value={{item.value}}></todo-element></li>
         </template>
       </ul>
-      <app-localstorage-document key="todo-list" data={{elements}}>
+      <app-localstorage-document key=[[currentList]] data={{elements}}>
       </app-localstorage-document>
         `;
     }
@@ -63,11 +65,16 @@ class TodoList extends PolymerElement {
       this.elements = this.elements.filter(element => !element.checked)
     }
 
+    cambiaLista(list) {
+      this.currentList = list.detail
+      //C'e' un bug qui che porta alla sovrascrittura delle liste con quelle precedenti
+    }
+
     static get properties() {
         return {
           elements : { 
             type: Array,
-            value: [ 
+            value: [            
                 { value: "Nota 1", checked: false },
                 { value: "Nota 2", checked: false },
                 { value: "Nota 3", checked: false },
@@ -77,6 +84,10 @@ class TodoList extends PolymerElement {
             ],
             notify: true,
             reflectToAttribute: true
+          },
+          currentList : {
+            type: String,
+            value: "default",
           }
         }
     }
